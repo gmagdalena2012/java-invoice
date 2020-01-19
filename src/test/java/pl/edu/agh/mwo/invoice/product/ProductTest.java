@@ -34,6 +34,7 @@ public class ProductTest {
 		Product product = new DairyProduct("Oscypek", new BigDecimal("100.0"));
 		Assert.assertThat(new BigDecimal("108"), Matchers.comparesEqualTo(product.getPriceWithTax()));
 	}
+	
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testProductWithNullName() {
