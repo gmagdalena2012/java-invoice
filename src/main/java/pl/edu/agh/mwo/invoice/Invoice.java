@@ -22,6 +22,7 @@ public class Invoice {
 		BigDecimal sum = BigDecimal.ZERO;
 		for  (Product product : this.products.keySet()) {
 			Integer quantity = this.products.get(product);
+			sum = sum.add(product.getPrice().multiply(new BigDecimal(quantity)));
 		}
 		return sum;
 	}
@@ -31,6 +32,10 @@ public class Invoice {
 	}
 
 	public BigDecimal getGross() {
-		return BigDecimal.ZERO;
-	}
+		BigDecimal sum = BigDecimal.ZERO;
+		for  (Product product : this.products.keySet()) {
+			Integer quantity = this.products.get(product);
+			sum = sum.add(product.getPriceWithTax().multiply(new BigDecimal(quantity)));
+		}
+}
 }
