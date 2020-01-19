@@ -16,7 +16,7 @@ public abstract class Product {
 		}
 		
 		{
-			if (price == null) {
+			if (price == null || price.signum() <0) {
 				throw new IllegalArgumentException("Product price cannot be null");
 			}
 		}
