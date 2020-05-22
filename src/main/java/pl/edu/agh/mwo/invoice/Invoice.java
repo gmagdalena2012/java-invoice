@@ -47,4 +47,16 @@ public class Invoice {
     public int getNumber() {
         return number;
     }
+    
+    public String print() {
+    	String invoiceHeader = "Numer faktury: " + getNumber() + "\n";
+   
+    	for (Product product : products.keySet()) {
+    		invoiceHeader = invoiceHeader + product.getName() + ", szt: " + products.get(product)
+            + ", cena/szt: " + product.getPrice() + " PLN\n";
+    	}
+    	
+    	invoiceHeader += "Liczba pozycji: " + this.products.size();
+    	return invoiceHeader;
+    }
 }
